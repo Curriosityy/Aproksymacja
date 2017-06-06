@@ -6,7 +6,7 @@ using namespace std;
 //ca³kowanie numeryczne
 double funkcja(double x)
 {
-	return exp(x);
+	return pow(x, 2) + (3 * x);
 }
 
 double wielLag(double x,double n)
@@ -106,7 +106,7 @@ double gX(double x, int n,double* xTab,double h,int n2)
 int main()
 {
 	double a = -1, b = 1;
-	int n = 3, n2 = 1000;
+	int n = 1, n2 = 1000;
 	double h;
 	h = ((double)b - a) / n2;
 	double* xTab = new double[n2 + 1];
