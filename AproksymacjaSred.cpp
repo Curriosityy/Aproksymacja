@@ -50,7 +50,7 @@ bool gauss(int n, double ** AB, double * X)
 
 double funkcja(double x)
 {
-	return sqrt(x);
+	return pow(x,2)+(3*x);
 }
 double wielomian(double x, int n, double* TabA)
 {
@@ -120,7 +120,6 @@ void tabDoGaussa(double** AB,int n, double* xTab, double h, int n2)
 		{
 			AB[i][j] = metodaTrapezowAij(xTab, h, n2, i,j);
 		}
-		cout << endl;
 	}
 	cout << endl;
 	for (int i = 0; i < n; i++)
@@ -132,7 +131,8 @@ void tabDoGaussa(double** AB,int n, double* xTab, double h, int n2)
 
 int main()
 {
-	int a=1, b=3, n=3,n2=10000;
+	double a = 2.5, b = 4;
+	int n=3,n2=10000;
 	double h = ((double)b - a) / (n2*1.0);
 	double* xTab = new double[n2 + 1];
 	tablicaXi(a, b, xTab, n2);
@@ -146,9 +146,10 @@ int main()
 	gauss(n, AB, X);
 	for(int i =0;i<n;i++)
 	{
-		cout << X[i]<<endl;
+		cout << X[i]<<" ";
 	}
-	cout << wielomian(1, n, X);
+	cout << endl;
+	cout << wielomian(2, n, X);
 	_getch();
 	return 0;
 }
